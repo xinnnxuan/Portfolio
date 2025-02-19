@@ -208,3 +208,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createProjectCards();
 });
+
+// Skills section animations
+gsap.utils.toArray('.skills-section').forEach(section => {
+    // Fade in and slide up animation
+    gsap.from(section, {
+        scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1
+    });
+
+    // Stagger animation for skill tags within each section
+    gsap.from(section.querySelectorAll('.skill-tags span'), {
+        scrollTrigger: {
+            trigger: section,
+            start: 'top 75%'
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        stagger: {
+            amount: 0.5,
+            from: "start"
+        }
+    });
+
+    // Add hover effect for section titles
+    const title = section.querySelector('h3');
+    title.addEventListener('mouseenter', () => {
+        gsap.to(title, {
+            color: 'var(--primary-color)',
+            duration: 0.3
+        });
+    });
+    title.addEventListener('mouseleave', () => {
+        gsap.to(title, {
+            color: 'var(--text-primary)',
+            duration: 0.3
+        });
+    });
+});
+
+// Enhanced scroll animations for skills sections
+ScrollTrigger.batch('.skills-section', {
+    interval: 0.1,
+    batchMax: 3,
+    onEnter: batch => gsap.to(batch, {
+        autoAlpha: 1,
+        y: 0,
+        stagger: 0.15,
+        overwrite: true
+    }),
+    onLeave: batch => gsap.set(batch, {
+        autoAlpha: 0,
+        y: -50,
+        overwrite: true
+    }),
+    onEnterBack: batch => gsap.to(batch, {
+        autoAlpha: 1,
+        y: 0,
+        stagger: 0.15,
+        overwrite: true
+    }),
+    onLeaveBack: batch => gsap.set(batch, {
+        autoAlpha: 0,
+        y: 50,
+        overwrite: true
+    })
+});
+
+// Add subtle parallax effect to skills sections
+gsap.utils.toArray('.skills-section').forEach(section => {
+    gsap.to(section, {
+        scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+        },
+        y: 20,
+        ease: 'none'
+    });
+});
