@@ -296,3 +296,37 @@ gsap.utils.toArray('.skills-section').forEach(section => {
         ease: 'none'
     });
 });
+
+// Handle scroll indicator visibility
+const scrollIndicator = document.querySelector('.scroll-indicator');
+
+// Function to hide scroll indicator
+const hideScrollIndicator = () => {
+    scrollIndicator.style.opacity = '0';
+    scrollIndicator.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+        scrollIndicator.style.display = 'none';
+    }, 300); // Wait for fade out animation to complete
+};
+
+// Add scroll event listener
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    // Clear previous timeout
+    clearTimeout(scrollTimeout);
+    
+    // Hide indicator when scroll starts
+    hideScrollIndicator();
+    
+    // Remove scroll listener after first scroll
+    window.removeEventListener('scroll', hideScrollIndicator);
+});
+
+// Add CSS transition for smooth fade out
+const style = document.createElement('style');
+style.textContent = `
+    .scroll-indicator {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+`;
+document.head.appendChild(style);
