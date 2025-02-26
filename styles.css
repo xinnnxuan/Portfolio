@@ -483,9 +483,9 @@ body {
 /* Contact Section */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);  /* Changed from 3 to 2 columns */
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;  /* Reduced max-width since we have fewer cards */
     margin: 0 auto;
 }
 
@@ -908,4 +908,389 @@ body {
 .dark-mode .experience-card:hover {
     transform: translateY(-5px);
     background-color: #2d2d2f;  /* Slightly lighter on hover */
+}
+
+/* Professional Project Detail Styles */
+.detail-section {
+    padding-top: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 6rem;
+}
+
+.project-header {
+    margin-bottom: 4rem;
+    text-align: left;  /* Changed from center to left */
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: flex-start;  /* Changed from center to flex-start */
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.detail-content {
+    background: transparent;
+    padding: 0;
+}
+
+.project-section {
+    margin-bottom: 5rem;
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    padding: 4rem;  /* Increased padding */
+}
+
+.project-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;  /* Increased space after headings */
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1rem;
+}
+
+.project-section h3 {
+    font-size: 1.6rem;
+    margin: 3rem 0 1.5rem;  /* Added space above and below subheadings */
+    color: var(--text-primary);
+}
+
+.dataset-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;  /* Increased gap between stat cards */
+    margin: 2.5rem 0;  /* Added vertical margin */
+}
+
+.stat-card {
+    background: var(--bg-primary);
+    padding: 2rem;  /* Increased padding */
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h4 {
+    margin-bottom: 1rem;  /* More space between title and value */
+}
+
+.model-results table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2.5rem 0;
+}
+
+.model-results th {
+    background: var(--bg-primary);
+    padding: 1.5rem 2rem;  /* Increased cell padding */
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.model-results td {
+    padding: 1.5rem 2rem;  /* Increased cell padding */
+    border-bottom: 1px solid rgba(134, 134, 139, 0.1);
+}
+
+.findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.finding-card {
+    background: var(--bg-primary);
+    padding: 2.5rem;  /* Increased padding */
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.finding-card:hover {
+    transform: translateY(-5px);
+}
+
+.finding-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;  /* More space after card titles */
+    color: var(--text-primary);
+}
+
+.finding-card p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.future-list li {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.future-list li:hover {
+    transform: translateY(-3px);
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.application-card {
+    background: var(--bg-primary);
+    padding: 2.5rem;  /* Increased padding */
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+}
+
+.application-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;  /* More space after card titles */
+    color: var(--text-primary);
+}
+
+.application-card p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* Dark mode refinements */
+.dark-mode .project-section {
+    background: var(--dark-card-bg);
+}
+
+.dark-mode .stat-card,
+.dark-mode .finding-card,
+.dark-mode .future-list li,
+.dark-mode .application-card,
+.dark-mode .model-results th {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Typography and Spacing Improvements */
+.project-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;  /* Added margin for better spacing */
+    max-width: 800px;  /* Limit line length for better readability */
+}
+
+/* List styling improvements */
+.objectives ul,
+.data-analysis ul,
+.implementation-details ul,
+.web-app-details ul,
+.performance-insights ul,
+.future-list {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;  /* Added vertical margin */
+    padding-left: 2rem;  /* Increased indent */
+}
+
+.objectives li,
+.data-analysis li,
+.implementation-details li,
+.web-app-details li,
+.performance-insights li,
+.future-list li {
+    margin-bottom: 1rem;  /* Space between list items */
+}
+
+/* Section headings spacing */
+.project-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;  /* Increased space after headings */
+    padding-bottom: 1rem;
+}
+
+.project-section h3 {
+    font-size: 1.6rem;
+    margin: 3rem 0 1.5rem;  /* Added space above and below subheadings */
+    color: var(--text-primary);
+}
+
+/* Card content spacing */
+.finding-card,
+.application-card {
+    padding: 2.5rem;  /* Increased padding */
+}
+
+.finding-card h4,
+.application-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;  /* More space after card titles */
+}
+
+.finding-card p,
+.application-card p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* Table spacing */
+.model-results table {
+    margin: 2.5rem 0;
+    border-spacing: 0;
+}
+
+.model-results th,
+.model-results td {
+    padding: 1.5rem 2rem;  /* Increased cell padding */
+    text-align: left;
+}
+
+/* Stats cards spacing */
+.dataset-stats {
+    gap: 2rem;  /* Increased gap between stat cards */
+    margin: 2.5rem 0;  /* Added vertical margin */
+}
+
+.stat-card {
+    padding: 2rem;  /* Increased padding */
+}
+
+.stat-card h4 {
+    margin-bottom: 1rem;  /* More space between title and value */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .detail-section {
+        padding: 80px 1rem 3rem;
+    }
+    
+    .project-section {
+        padding: 2.5rem;
+    }
+    
+    .project-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .project-section h3 {
+        font-size: 1.4rem;
+        margin: 2rem 0 1rem;
+    }
+}
+
+/* Video Container Styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--bg-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Dark mode adjustment */
+.dark-mode .video-container {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Predictor Section Styles */
+.predictor-container {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.predictor-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.predictor-form {
+    padding: 2rem;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+}
+
+.prediction-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Dark mode adjustments */
+.dark-mode .predictor-container {
+    background: var(--dark-card-bg);
+}
+
+.dark-mode .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--dark-text);
+}
+
+.dark-mode .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }

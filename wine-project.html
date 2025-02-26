@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Rating Classification | Johanna Fan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="index.html">JF</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="section-content">
+            <a href="index.html#projects" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Projects
+            </a>
+            
+            <div class="project-header">
+                <h1 class="section-title">Wine Rating Classification Project</h1>
+                <div class="project-meta">
+                    <span><i class="far fa-calendar"></i> CPSC 322 - Fall 2024</span>
+                    <span><i class="fas fa-users"></i> Team: Johanna Fan & Lindsey Bodenbender</span>
+                    <a href="https://github.com/xinnnxuan/CPSC322-FinalProject" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                    <a href="https://www.kaggle.com/datasets/budnyak/wine-rating-and-price/data" target="_blank" class="dataset-link">
+                        <i class="fas fa-database"></i> Dataset Source
+                    </a>
+                </div>
+            </div>
+
+            <div class="detail-content">
+                <section class="project-section">
+                    <h2>Project Overview</h2>
+                    <p>Wine is a complex product influenced by price, vintage, winery reputation, and consumer perception. This project applies machine learning algorithms to classify and predict wine ratings based on structured data. Using a combination of decision trees, Naïve Bayes, and random forests, we explore which factors best determine wine quality.</p>
+                    
+                    <div class="objectives">
+                        <h3>Objectives</h3>
+                        <ul>
+                            <li>Predict wine ratings (Poor, OK, Average, Good, Excellent) based on attributes</li>
+                            <li>Analyze relationships between price, year, number of ratings, and wine quality</li>
+                            <li>Build a Flask-based web app for interactive predictions</li>
+                            <li>Identify challenges in rating distributions and data bias</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Dataset Breakdown</h2>
+                    <div class="dataset-stats">
+                        <div class="stat-card">
+                            <h4>Total Wines</h4>
+                            <p>13,834</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Unique Wines</h4>
+                            <p>10,934</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Countries</h4>
+                            <p>33</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Regions</h4>
+                            <p>861</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Wineries</h4>
+                            <p>3,505</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Price Range</h4>
+                            <p>$3.15 - $3,410.79</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Years</h4>
+                            <p>1961 - 2020</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Rating Range</h4>
+                            <p>2.2 - 4.9</p>
+                        </div>
+                    </div>
+
+                    <div class="data-analysis">
+                        <h3>Exploratory Data Analysis</h3>
+                        <ul>
+                            <li>Price Distribution → Right-skewed, most wines are lower-priced</li>
+                            <li>Year of Production → Most wines were produced after 2016</li>
+                            <li>Number of Ratings → A few wines dominate in reviews, leading to imbalance</li>
+                            <li>Correlation Analysis → Higher-priced wines tend to have better ratings</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Machine Learning Implementation</h2>
+                    <div class="implementation-details">
+                        <h3>Classification Models</h3>
+                        <ul>
+                            <li>Naïve Bayes → Probabilistic model assuming independence among features</li>
+                            <li>Decision Tree → Splits data into decision-based paths</li>
+                            <li>Random Forest → Uses multiple decision trees for higher accuracy</li>
+                        </ul>
+
+                        <h3>Training & Testing</h3>
+                        <ul>
+                            <li>Cross-Validation: k=10 Random Subsampling</li>
+                            <li>Features Used: Price, Year, Number of Ratings</li>
+                        </ul>
+
+                        <div class="model-results">
+                            <h3>Model Performance</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Model</th>
+                                        <th>Accuracy</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Decision Tree</td>
+                                        <td class="highlight">42% (Best)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Naïve Bayes</td>
+                                        <td>33%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Random Forest</td>
+                                        <td>32%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Web App & API</h2>
+                    <div class="web-app-details">
+                        <h3>How It Works</h3>
+                        <ul>
+                            <li>Users enter Price, Year, and Number of Ratings</li>
+                            <li>The Decision Tree Model predicts a rating category</li>
+                            <li>Output: "Poor", "OK", "Average", "Good", "Excellent"</li>
+                        </ul>
+
+                        <h3>Tech Stack</h3>
+                        <ul>
+                            <li>Backend: Flask API to handle requests</li>
+                            <li>Model Storage: Trained classifiers are saved using Pickle</li>
+                            <li>Frontend: A user-friendly interface to input wine details</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Try the Predictor</h2>
+                    <div class="predictor-container">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <img src="https://www.thinkitchen.in/cdn/shop/articles/11_Types_of_Wine.jpg?v=1711203288" class="img-fluid" alt="Wine varieties">
+                            </div>
+                            <div class="col-lg-7 px-5 pt-5">
+                                <h3>Wine Rating Predictor</h3>
+                                <form action="/predict" method="post" class="predictor-form">
+                                    <div class="form-row">
+                                        <div class="col-lg-7">
+                                            <input type="text" placeholder="Price" name="Price" class="form-control my-1 p-2">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-lg-7">
+                                            <input type="text" placeholder="Year" name="Year" class="form-control my-1 p-2">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-lg-7">
+                                            <input type="text" placeholder="Number of Ratings" name="NumberOfRatings" class="form-control my-1 p-2">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-lg-7">
+                                            <button type="submit" class="btn btn-primary mt-3 mb-3 p-2 w-100">Predict Wine Rating</button>
+                                        </div>
+                                    </div>
+                                    <div id="prediction-result" class="prediction-result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Key Findings & Insights</h2>
+                    <div class="findings-grid">
+                        <div class="finding-card">
+                            <h4>Data Skewness</h4>
+                            <p>Price and number of ratings are heavily right-skewed</p>
+                        </div>
+                        <div class="finding-card">
+                            <h4>Class Imbalance</h4>
+                            <p>A small number of wines have extremely high reviews</p>
+                        </div>
+                        <div class="finding-card">
+                            <h4>Feature Selection</h4>
+                            <p>Adding more attributes could improve predictions</p>
+                        </div>
+                    </div>
+
+                    <div class="performance-insights">
+                        <h3>Performance Insights</h3>
+                        <ul>
+                            <li>Decision Trees outperformed Naïve Bayes and Random Forests</li>
+                            <li>Price had a stronger impact on rating predictions than vintage year</li>
+                            <li>Handling missing values played a crucial role in model accuracy</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Future Enhancements</h2>
+                    <ul class="future-list">
+                        <li>Enhance Feature Engineering → Include factors like grape variety, winery reputation, and critic reviews</li>
+                        <li>Improve Model Performance → Optimize classifiers with hyperparameter tuning</li>
+                        <li>Deep Learning Approach → Train a Neural Network for higher predictive accuracy</li>
+                        <li>Expand Web App → Add visualizations and user interaction features</li>
+                    </ul>
+                </section>
+
+                <section class="project-section">
+                    <h2>Real-World Applications</h2>
+                    <div class="applications-grid">
+                        <div class="application-card">
+                            <h4>Consumer Market</h4>
+                            <p>Helps users make informed wine selections based on expected quality</p>
+                        </div>
+                        <div class="application-card">
+                            <h4>Retail & Distribution</h4>
+                            <p>Guides retailers in stocking high-quality wines to match consumer demand</p>
+                        </div>
+                        <div class="application-card">
+                            <h4>Wine Industry</h4>
+                            <p>Enables producers to identify market trends and adjust pricing strategies</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h2>Project Demo</h2>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html> 

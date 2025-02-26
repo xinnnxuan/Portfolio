@@ -330,3 +330,92 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Add smooth scroll behavior to logo
+document.querySelector('.logo a').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Add click handlers to project and experience cards
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('h3').textContent;
+        
+        // Check if it's the Wine Rating Classification Project
+        if (title === "Wine Rating Classification Project") {
+            window.location.href = 'wine-project.html';
+        } else {
+            // For other projects, use the generic detail page
+            localStorage.setItem('currentDetail', JSON.stringify({
+                title: title,
+                content: this.innerHTML,
+                type: 'project'
+            }));
+            window.location.href = 'detail.html';
+        }
+    });
+});
+
+// Handle experience cards separately
+document.querySelectorAll('.experience-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const title = this.querySelector('h3').textContent;
+        localStorage.setItem('currentDetail', JSON.stringify({
+            title: title,
+            content: this.innerHTML,
+            type: 'experience'
+        }));
+        window.location.href = 'detail.html';
+    });
+});
+
+// Make cards look clickable
+const cardStyle = document.createElement('style');
+cardStyle.textContent = `
+    .project-card, .experience-card {
+        cursor: pointer;
+    }
+`;
+document.head.appendChild(cardStyle);
+
+// Update the form submission handler
+document.querySelector('.predictor-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const predictionDiv = document.getElementById('prediction-result');
+    
+    try {
+        const response = await fetch('/predict', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.error) {
+            predictionDiv.innerHTML = `
+                <div class="alert alert-danger">
+                    ${result.error}
+                </div>
+            `;
+        } else {
+            predictionDiv.innerHTML = `
+                <div class="alert alert-success">
+                    Predicted Rating: ${result.prediction}
+                </div>
+            `;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        predictionDiv.innerHTML = `
+            <div class="alert alert-danger">
+                Error making prediction. Please try again.
+            </div>
+        `;
+    }
+});

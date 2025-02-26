@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details | Johanna Fan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="logo">
+                <a href="index.html">JF</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="detail-section">
+        <div class="section-content">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+            <h2 class="section-title" id="detailTitle"></h2>
+            <div class="detail-content" id="detailContent"></div>
+        </div>
+    </section>
+
+    <script>
+        // Load and display the detail content
+        window.addEventListener('DOMContentLoaded', () => {
+            const detail = JSON.parse(localStorage.getItem('currentDetail'));
+            if (detail) {
+                document.title = `${detail.title} | Johanna Fan`;
+                document.getElementById('detailTitle').textContent = detail.title;
+                document.getElementById('detailContent').innerHTML = detail.content;
+            }
+        });
+    </script>
+</body>
+</html> 
